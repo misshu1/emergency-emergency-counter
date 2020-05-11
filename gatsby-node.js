@@ -46,10 +46,10 @@ exports.onCreateDevServer = ({ app }) => {
     try {
       isAtWork = JSON.parse(query.isAtWork)
     } catch (error) {
-      console.log('"isAtWork" must me true or false')
+      console.log('"isAtWork" must be true or false')
     }
 
-    if (query.userId && isAtWork !== null) {
+    if (query.userId && typeof isAtWork === "boolean") {
       employeesRef(query.userId)
         .get()
         .then(doc => {
