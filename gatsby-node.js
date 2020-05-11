@@ -45,7 +45,10 @@ exports.onCreateDevServer = ({ app }) => {
 
     try {
       isAtWork = JSON.parse(query.isAtWork)
-    } catch (error) {
+      if (typeof isAtWork !== "boolean") {
+        console.log('"isAtWork" must be true or false')
+      }
+    } catch (err) {
       console.log('"isAtWork" must be true or false')
     }
 
@@ -58,7 +61,7 @@ exports.onCreateDevServer = ({ app }) => {
           } else {
             employeesRef(query.userId)
               .update({
-                isAtWork: isAtWork === true ? true : false,
+                isAtWork,
                 emergencyCheckIn: null,
               })
               .then(console.log("Updated employee with ID: ", query.userId))
