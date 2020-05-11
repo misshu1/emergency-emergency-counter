@@ -20,7 +20,7 @@ function useProvideAuth() {
   const login = async (email, password) => {
     return await firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email.trim(), password)
       .then(response => {
         setUser(response.user)
         return response.user
@@ -30,7 +30,7 @@ function useProvideAuth() {
   const register = async (name, email, password) => {
     const newUser = await firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email.trim(), password)
 
     await newUser.user.updateProfile({
       displayName: name,
