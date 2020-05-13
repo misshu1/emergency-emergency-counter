@@ -4,6 +4,12 @@ import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart } from 'r
 import { Container } from './style';
 
 const DepartmentChart = ({ employees }) => {
+    const checkInAtWork = department => {
+        return employees.filter(employee => {
+            return employee.isAtWork && employee.department === department
+        })
+    }
+
     const checkInDepartment = department => {
         return employees.filter(employee => {
             return (
@@ -16,10 +22,14 @@ const DepartmentChart = ({ employees }) => {
         const uniqueDepartmentsSet = new Set(
             employees.map(employee => employee.department)
         )
-        const uniqueDepartmentsArray = [...new Set(uniqueDepartmentsSet)]
+
+        const uniqueDepartmentsArray = [...uniqueDepartmentsSet]
         const data = uniqueDepartmentsArray.map(department => ({
             department,
-            value: checkInDepartment(department).length,
+            value:
+                (checkInDepartment(department).length /
+                    checkInAtWork(department).length) *
+                100,
         }))
 
         return data
