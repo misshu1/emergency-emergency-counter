@@ -17,7 +17,8 @@ This app is used for employee's timekeeping and also, in case of an emergency, w
 
     1. Employee arrives to the meeting point
     2. Employee will use his card to check-in to a card reader
-    3. A counter on the dashboard of the employee’s manager will increase showing how many people are at the office and check-in at the meeting point
+    3. A counter on the dashboard of the employee’s manager will increase
+    showing how many people are at the office and check-in at the meeting point
 
 **Manager Observing Current Stats Flow**
 

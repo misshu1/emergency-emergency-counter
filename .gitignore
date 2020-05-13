@@ -69,3 +69,6 @@ yarn-error.log
 .yarn-integrity
 
 firebaseServiceAccount.json
+
+# Local Netlify folder
+.netlify

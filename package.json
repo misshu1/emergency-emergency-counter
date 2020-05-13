@@ -3,7 +3,7 @@
   "private": true,
   "description": "",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "misshu1",
   "dependencies": {
     "@material-ui/core": "4.9.13",
     "@material-ui/icons": "4.9.1",
@@ -16,6 +16,7 @@
     "gatsby-plugin-firebase": "0.2.0-beta.4",
     "gatsby-plugin-manifest": "^2.4.2",
     "gatsby-plugin-material-ui": "2.1.8",
+    "gatsby-plugin-netlify": "^2.3.2",
     "gatsby-plugin-offline": "^3.2.1",
     "gatsby-plugin-prefetch-google-fonts": "1.4.3",
     "gatsby-plugin-react-helmet": "^3.3.1",
@@ -23,6 +24,7 @@
     "gatsby-plugin-styled-components": "3.3.1",
     "gatsby-source-filesystem": "^2.3.1",
     "gatsby-transformer-sharp": "^2.5.2",
+    "netlify-lambda": "^1.6.3",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -40,8 +42,13 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
+    "start:lambda": "netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions",
+    "prod": "npm run build; npm run build:lambda",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "netlify": "netlify dev",
+    "prebuild": "netlify-lambda install",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
